@@ -1,9 +1,10 @@
 import { Container, Stack } from "@chakra-ui/react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { RobesProvider } from "robes";
-import LayoutHeader from "./feature/layout/LayoutHeader";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
+import HomePage from "./feature/home/HomePage";
+import GamesPage from "./feature/game/GamesPage";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 
@@ -14,7 +15,10 @@ export default function App() {
         <ConvexAuthProvider client={convex}>
           <Container pt='10px'>
             <Stack>
-              <LayoutHeader />
+              <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/games' element={<GamesPage />} />
+              </Routes>
             </Stack>
           </Container>
         </ConvexAuthProvider>
