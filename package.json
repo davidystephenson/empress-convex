@@ -22,7 +22,8 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.2",
-    "robes": "^0.1.42",
+    "robes": "^0.1.43",
+    "use-actor": "^0.1.4",
     "yeast": "^0.1.2"
   },
   "devDependencies": {

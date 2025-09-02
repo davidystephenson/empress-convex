@@ -19,6 +19,7 @@ import type * as getGames from "../getGames.js";
 import type * as getHome from "../getHome.js";
 import type * as getUserByName from "../getUserByName.js";
 import type * as http from "../http.js";
+import type * as joinGame from "../joinGame.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -35,6 +36,7 @@ declare const fullApi: ApiFromModules<{
   getHome: typeof getHome;
   getUserByName: typeof getUserByName;
   http: typeof http;
+  joinGame: typeof joinGame;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
