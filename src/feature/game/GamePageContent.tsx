@@ -1,5 +1,5 @@
 import LayoutHeader from "../layout/LayoutHeader"
-import { IconButtonRobe, LongRowmanceRobe } from "robes"
+import { LongRowmanceRobe } from "robes"
 import { useState } from "react"
 import { Heading, HStack } from "@chakra-ui/react"
 import gameQueryContext from "./gameQueryContext"
@@ -8,8 +8,10 @@ import PlayerCells from "../player/PlayerCells"
 import LayoutNotFound from "../layout/LayoutNotFound"
 import JoinGame from "./JoinGame"
 import AuthController from "../auth/AuthController"
-import ClinkRobe from "clink-robe"
-import { FaLink } from "react-icons/fa";
+import { ClinkRobe } from "clink-robe"
+import CopyGame from "./CopyGame"
+import StartGame from "./StartGame"
+import episodesContext from "../episode/episodesContext"
 
 export default function GamePageContent(props: {
   gameId: string
@@ -34,32 +36,28 @@ export default function GamePageContent(props: {
       return player.user.name.toLowerCase().includes(query.toLowerCase())
     })
   const path = `/game/${gameQuery.data.game._id}`
-  function handleCopy () {
-    navigator.clipboard.writeText(window.location.href)
-  }
+  console.log('gameQuery.data', gameQuery.data)
   return (
     <AuthController user={gameQuery.data.auth}>
+      <LayoutHeader loading={gameQuery.loading} name={gameQuery.data.auth?.name} />
       <gameContext.Provider game={gameQuery.data.game}>
-        <LayoutHeader loading={gameQuery.loading} name={gameQuery.data.auth?.name} />
-        <HStack>
-          <ClinkRobe to={path}>
-            <Heading>{gameQuery.data.game?.name}</Heading>
-          </ClinkRobe>
-          <IconButtonRobe
-            aria-label="Copy game link"
-            icon={<FaLink />}
-            onClick={handleCopy}
-            variant='ghost'
+        <episodesContext.Provider {...gameQuery.data.episodes}>
+          <HStack>
+            <ClinkRobe to={path}>
+              <Heading>{gameQuery.data.game?.name}</Heading>
+            </ClinkRobe>
+            <CopyGame />
+            <JoinGame />
+            <StartGame />
+          </HStack>
+          <LongRowmanceRobe
+            Cells={PlayerCells}
+            columns={['Player', '']}
+            data={filteredPlayers ?? []}
+            onSearch={handleFilter}
           />
-          <JoinGame />
-        </HStack>
-        <LongRowmanceRobe
-          Cells={PlayerCells}
-          columns={['Player', '']}
-          data={filteredPlayers ?? []}
-          onSearch={handleFilter}
-        />
+        </episodesContext.Provider>
       </gameContext.Provider>
-    </AuthController>
+    </AuthController >
   )
 }

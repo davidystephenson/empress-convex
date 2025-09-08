@@ -7,11 +7,13 @@ const joinGame = mutation({
   args: { gameId: v.id('games') },
   handler: async (ctx, args) => {
     const authId = await guardAuthId({ ctx })
-    const existing = await ctx
-      .db
-      .query('players')
-      .withIndex('game_user', (q) => q.eq('gameId', args.gameId).eq('userId', authId))
-      .first()
+    const players = await ctx.db.query('players').withIndex('game',
+      (q) => q.eq('gameId', args.gameId)
+    ).collect()
+    if (players.length >= 6) {
+      throw new ConvexError('Game is full')
+    }
+    const existing = players.find(player => player.userId === authId)
     if (existing != null) {
       throw new ConvexError('Player already exists')
     }

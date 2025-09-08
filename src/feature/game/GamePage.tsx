@@ -7,7 +7,6 @@ export default function GamePage() {
   if (params.gameId == null) {
     throw new Error('There is no gameId')
   }
-  console.log('params.gameId', params.gameId)
   return (
     <gameQueryContext.Provider args={{ gameId: params.gameId }}>
       <GamePageContent gameId={params.gameId} />

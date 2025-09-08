@@ -25,7 +25,6 @@ export default function JoinGame() {
       isLoading={joinGame.acting}
       loading={joinGame.acting}
       onClick={handleJoin}
-      size='xs'
     >
       Join
     </ImpressedRobe>

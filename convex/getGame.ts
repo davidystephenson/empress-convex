@@ -1,8 +1,7 @@
 import { getAuthUserId } from '@convex-dev/auth/server'
 import { query } from './_generated/server'
 import { v } from 'convex/values'
-import guard from '../src/feature/arched/guard'
-import relateGame from '../src/feature/game/relateGame'
+import guardRelatedGame from '../src/feature/game/guardRelatedGame'
 
 const getGame = query({
   args: { gameId: v.string()},
@@ -11,14 +10,17 @@ const getGame = query({
     if (gameId == null) {
       return {}
     }
-    const game = await guard({ ctx, id: gameId })
-    const relatedGame = await relateGame({ ctx, game })
+    const game = await guardRelatedGame({ ctx, gameId }) 
+    const starts = await ctx.db.query('starts').withIndex(
+      'game', (q) => q.eq('gameId', gameId)
+    ).collect()
+    const episodes = { starts }
     const authId = await getAuthUserId(ctx)
     if (authId == null) {
-      return { game: relatedGame }
+      return { game, episodes }
     }
     const auth = await ctx.db.get(authId) ?? undefined
-    return { auth, game: relatedGame }
+    return { auth, game, episodes }
   }
 })
 export default getGame

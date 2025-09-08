@@ -10,10 +10,8 @@ export default function LeaveGame() {
   const game = gameContext.use()
   const leaveGame = useArchedMutation({ label: 'Leave Game', mutation: api.leaveGame.default })
   const navigate = useNavigate()
-  console.log('auth', auth)
   const joined = game.players.some(player => player.user._id === auth.value?._id)
   if (!auth.provided || !joined) {
-    console.log('joined', joined)
     return <></>
   }
   async function handleLeave() {
