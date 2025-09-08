@@ -1,37 +1,21 @@
 import { Td } from "@chakra-ui/react";
-import type { Doc } from "../../../convex/_generated/dataModel";
-import { ImpressedActorRobe, ImpressedRobe } from "robes";
 import ClinkRobe from "clink-robe";
-import { api } from "../../../convex/_generated/api";
-import useArchedMutation from "../arched/useArchedMutation";
-import { useNavigate } from "react-router-dom";
+import gameContext from "./gameContext";
+import type { RelatedGame } from "./gameTypes";
+import GameRowButton from "./GameRowButton";
 
 export default function GameCells (props: {
-  row: Doc<'games'>
+  row: RelatedGame
 }) {
-  const joinGame = useArchedMutation({ label: 'Join Game', mutation: api.joinGame.default })
-  const navigate = useNavigate()
-  const path = `/game/${props.row.name}`;
-  async function handleJoin () {
-    await joinGame.act({ gameId: props.row._id })
-    await navigate(path)
-  }
+  const path = `/game/${props.row._id}`;
   return (
-    <>
+    <gameContext.Provider game={props.row}>
       <Td>
         <ClinkRobe to={path}>{props.row.name}</ClinkRobe>
       </Td>
       <Td>
-        <ImpressedRobe
-          error={joinGame.error?.message}
-          isLoading={joinGame.acting}
-          loading={joinGame.acting}
-          onClick={handleJoin}
-          size='xs'
-        >
-          Join
-        </ImpressedRobe>
+        <GameRowButton />
       </Td>
-    </>
+    </gameContext.Provider>
   )
 }

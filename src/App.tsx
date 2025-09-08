@@ -5,6 +5,8 @@ import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
 import HomePage from "./feature/home/HomePage";
 import GamesPage from "./feature/game/GamesPage";
+import GamePage from "./feature/game/GamePage";
+import LayoutNotFound from "./feature/layout/LayoutNotFound";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 
@@ -18,6 +20,8 @@ export default function App() {
               <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/games' element={<GamesPage />} />
+                <Route path='/game/:gameId' element={<GamePage />} />
+                <Route path='*' element={<LayoutNotFound label='Page' />} />
               </Routes>
             </Stack>
           </Container>

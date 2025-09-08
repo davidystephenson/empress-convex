@@ -4,12 +4,12 @@ import { query } from './_generated/server'
 const getHome = query({
   args: {},
   handler: async (ctx) => {
-    const userId = await getAuthUserId(ctx)
-    if (userId == null) {
+    const authId = await getAuthUserId(ctx)
+    if (authId == null) {
       return {}
     }
-    const user = await ctx.db.get(userId)
-    return { user }
+    const auth = await ctx.db.get(authId)
+    return { auth }
   }
 })
 export default getHome

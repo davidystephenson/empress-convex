@@ -15,11 +15,13 @@ import type {
 } from "convex/server";
 import type * as auth from "../auth.js";
 import type * as createGame from "../createGame.js";
+import type * as getGame from "../getGame.js";
 import type * as getGames from "../getGames.js";
 import type * as getHome from "../getHome.js";
 import type * as getUserByName from "../getUserByName.js";
 import type * as http from "../http.js";
 import type * as joinGame from "../joinGame.js";
+import type * as leaveGame from "../leaveGame.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -32,11 +34,13 @@ import type * as joinGame from "../joinGame.js";
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   createGame: typeof createGame;
+  getGame: typeof getGame;
   getGames: typeof getGames;
   getHome: typeof getHome;
   getUserByName: typeof getUserByName;
   http: typeof http;
   joinGame: typeof joinGame;
+  leaveGame: typeof leaveGame;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
