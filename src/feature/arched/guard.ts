@@ -1,4 +1,4 @@
-import type { GenericId } from 'convex/values'
+import { ConvexError, type GenericId } from 'convex/values'
 import type { Ctx } from './archedTypes'
 import type { DocumentByName, TableNamesInDataModel } from 'convex/server'
 import type { DataModel } from '../../../convex/_generated/dataModel'
@@ -11,7 +11,7 @@ TableName extends TableNamesInDataModel<DataModel>
 }): Promise<DocumentByName<DataModel, TableName>> {
   const doc = await props.ctx.db.get(props.id)
   if (doc == null) {
-    throw new Error(`${props.id} not found`)
+    throw new ConvexError({ id: props.id, notFound: true})
   }
   return doc
 }

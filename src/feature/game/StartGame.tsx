@@ -8,7 +8,7 @@ export default function StartGame() {
   const episodes = episodesContext.use()
   const game = gameContext.use()
   const startGame = useArchedMutation({ label: 'Start Game', mutation: api.startGame.default })
-  if (episodes.starts.length > 0) {
+  if (episodes.starts.length > 0 || game.players.length < 2) {
     return <></>
   }
   function handleStart() {

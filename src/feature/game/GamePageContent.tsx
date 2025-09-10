@@ -1,5 +1,5 @@
 import LayoutHeader from "../layout/LayoutHeader"
-import { Heading, HStack } from "@chakra-ui/react"
+import { Code, Heading, HStack } from "@chakra-ui/react"
 import gameQueryContext from "./gameQueryContext"
 import gameContext from "./gameContext"
 import LayoutNotFound from "../layout/LayoutNotFound"
@@ -10,6 +10,7 @@ import CopyGame from "./CopyGame"
 import StartGame from "./StartGame"
 import episodesContext from "../episode/episodesContext"
 import GameController from "./GameController"
+import { ConvexError } from "convex/values"
 
 export default function GamePageContent(props: {
   gameId: string
@@ -19,10 +20,13 @@ export default function GamePageContent(props: {
     return <LayoutHeader loading />
   }
   if (gameQuery.isError) {
+    if (gameQuery.error instanceof ConvexError && gameQuery.error.data.notFound) {
+      return <LayoutNotFound id={props.gameId} label="Game" />
+    }
     return (
       <>
         <LayoutHeader />
-        <>???</>
+        <Code colorScheme="red">{gameQuery.error.message}</Code>
       </>
     )
   }

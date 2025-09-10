@@ -7,6 +7,7 @@ const getGame = query({
   args: { gameId: v.string()},
   handler: async (ctx, args) => {
     const gameId = ctx.db.normalizeId('games', args.gameId)
+    console.log('gameId', gameId)
     if (gameId == null) {
       return {}
     }

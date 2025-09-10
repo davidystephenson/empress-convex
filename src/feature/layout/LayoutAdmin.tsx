@@ -9,6 +9,9 @@ export default function LayoutAdmin() {
   const resetAll = useArchedMutation({ label: 'Reset All', mutation: api.resetAll.default })
   const auth = authContext.use()
   const authActions = useAuthActions()
+  if (!auth.admin) {
+    return <></>
+  }
   async function handleReset () {
     await resetAll.act({})
     await authActions.signOut()

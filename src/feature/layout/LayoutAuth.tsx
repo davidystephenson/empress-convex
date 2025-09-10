@@ -1,8 +1,7 @@
 import { useAuthActions } from "@convex-dev/auth/react";
-import { ButtonRobe, ImpressedActorRobe, ImpressedRobe, ProfileRobe } from "robes";
+import { ButtonRobe, ImpressedActorRobe, ProfileRobe } from "robes";
 import LayoutAdmin from "./LayoutAdmin";
 import authContext from "../auth/authContext";
-import { useState } from "react";
 import useActor from "use-actor";
 
 export default function LayoutAuth(props: {
@@ -15,9 +14,7 @@ export default function LayoutAuth(props: {
     action: actions.signIn
   })
   if (props.loading) {
-    return (
-      <ButtonRobe size='xs' isLoading />
-    )
+    return <ButtonRobe size='xs' isLoading />
   }
   if (!auth.provided) {
     return (
@@ -29,10 +26,12 @@ export default function LayoutAuth(props: {
   async function handleLogout () {
     await actions.signOut()
   }
+  const colorScheme = auth.value.admin ? { colorScheme: 'red' } : {}
+  const button = { ...colorScheme, children: auth.value.name, size: 'xs' }
   return (
     <ProfileRobe
       onLogout={handleLogout}
-      button={{ children: auth.value.name, size: 'xs' }}
+      button={button}
     >
       <LayoutAdmin />
     </ProfileRobe>
