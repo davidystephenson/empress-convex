@@ -1,5 +1,5 @@
-import { useQuery } from 'convex/react'
 import type { DefaultFunctionArgs, FunctionReference } from 'convex/server'
+import useQueryWithStatus from './useQueryWIthStatus'
 import type { ArchedResult } from './archedTypes'
 
 export function useArchedQuery<
@@ -11,11 +11,7 @@ export function useArchedQuery<
 > (props: {
   args: Query['_args']
   query: Query
-}): ArchedResult<Query['_returnType']> {
-  const data = useQuery(props.query, props.args as any)
-  const loading = data === undefined
-  if (loading) {
-    return { data: undefined, loading }
-  }
-  return { data, loading: false }
+}): ArchedResult<Data, Args, Query> {
+  const query = useQueryWithStatus(props.query, props.args as any)
+  return query
 }

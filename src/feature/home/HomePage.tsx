@@ -7,7 +7,7 @@ export default function HomePage () {
   const homeQuery = useArchedQuery({ args: {}, query: api.getHome.default })
   return (
     <>
-      <LayoutHeader loading={homeQuery.loading} name={homeQuery.data?.auth?.name} />
+      <LayoutHeader loading={homeQuery.isPending} />
       <ButtonClinkRobe to="/games">Games</ButtonClinkRobe>
     </>
   )

@@ -1,7 +1,6 @@
 import guardAuthId from '../src/feature/auth/guardAuthId'
 import { mutation } from './_generated/server'
 import { ConvexError, v } from 'convex/values'
-import guard from '../src/feature/arched/guard'
 
 const startGame = mutation({
   args: { gameId: v.id('games') },

@@ -20,6 +20,7 @@ const schema = defineSchema({
     userId: v.id('users'),
   }).index('game', ['gameId']),
   users: defineTable({
+    admin: v.boolean(),
     name: v.string(),
   })
     .index('name', ['name'])

@@ -1,4 +1,3 @@
-import createAuthName from '../src/feature/auth/createAuthName'
 import guardAuthId from '../src/feature/auth/guardAuthId'
 import { mutation } from './_generated/server'
 import { ConvexError, v } from 'convex/values'
@@ -16,6 +15,12 @@ const joinGame = mutation({
     const existing = players.find(player => player.userId === authId)
     if (existing != null) {
       throw new ConvexError('Player already exists')
+    }
+    const start = await ctx.db.query('starts').withIndex(
+      'game', (q) => q.eq('gameId', args.gameId)
+    ).unique()
+    if (start != null) {
+      throw new ConvexError('Game already started')
     }
     await ctx.db.insert('players', { gameId: args.gameId, userId: authId })
   }

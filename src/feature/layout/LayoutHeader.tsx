@@ -4,14 +4,13 @@ import ClinkRobe from "clink-robe";
 
 export default function LayoutHeader(props: {
   loading?: boolean
-  name?: string
 }) {
   return (
     <HStack justifyContent='space-between'>
       <ClinkRobe to='/games'>
         <Heading size='md'>Long Live the Empress</Heading>
       </ClinkRobe>
-      <LayoutAuth loading={props.loading} name={props.name }/>
+      <LayoutAuth loading={props.loading} />
     </HStack>
   )
 }

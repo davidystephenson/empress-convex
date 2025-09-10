@@ -39,7 +39,7 @@ export default function queryContext<
     children: ReactNode
   }): ReactNode {
     const query = queryContext.use()
-    if (query.loading) {
+    if (query.isPending || query.isError) {
       return <>{props.children}</>
     }
     return (

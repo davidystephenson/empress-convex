@@ -14,6 +14,12 @@ const leaveGame = mutation({
     if (existing == null) {
       throw new ConvexError('Player not found')
     }
+    const start = await ctx.db.query('starts').withIndex(
+      'game', (q) => q.eq('gameId', args.gameId)
+    ).unique()
+    if (start != null) {
+      throw new ConvexError('Game already started')
+    }
     await ctx.db.delete(existing._id)
   }
 })

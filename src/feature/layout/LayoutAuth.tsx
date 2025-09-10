@@ -1,32 +1,40 @@
 import { useAuthActions } from "@convex-dev/auth/react";
-import { ButtonRobe, ProfileRobe } from "robes";
+import { ButtonRobe, ImpressedActorRobe, ImpressedRobe, ProfileRobe } from "robes";
+import LayoutAdmin from "./LayoutAdmin";
+import authContext from "../auth/authContext";
+import { useState } from "react";
+import useActor from "use-actor";
 
 export default function LayoutAuth(props: {
   loading?: boolean
-  name?: string
 }) {
+  const auth = authContext.useMaybe()
   const actions = useAuthActions()
+  const createActor = useActor({
+    label: 'Create Account',
+    action: actions.signIn
+  })
   if (props.loading) {
     return (
       <ButtonRobe size='xs' isLoading />
     )
   }
-  if (props.name == null) {
-    async function handleCreate() {
-      await actions.signIn('anonymous')
-    }
+  if (!auth.provided) {
     return (
-      <ButtonRobe onClick={handleCreate} size='xs'>
+      <ImpressedActorRobe actor={createActor} input='anonymous' size='xs'>
         Create Account
-      </ButtonRobe>
+      </ImpressedActorRobe>
     )
   }
   async function handleLogout () {
     await actions.signOut()
   }
   return (
-    <ProfileRobe onLogout={handleLogout} button={{ size: 'xs' }}>
-      {props.name}
+    <ProfileRobe
+      onLogout={handleLogout}
+      button={{ children: auth.value.name, size: 'xs' }}
+    >
+      <LayoutAdmin />
     </ProfileRobe>
   )
 }

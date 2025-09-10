@@ -11,8 +11,16 @@ import CreateGame from "./CreateGame"
 export default function GamesPage() {
   const gamesQuery = useArchedQuery({ args: {}, query: api.getGames.default })
   const [query, setQuery] = useState<string>()
-  if (gamesQuery.loading) {
+  if (gamesQuery.isPending) {
     return <LayoutHeader loading />
+  }
+  if (gamesQuery.isError) {
+    return (
+      <>
+        <LayoutHeader />
+        <>???</>
+      </>
+    )
   }
   function handleFilter(props: { query?: string }) {
     setQuery(props.query)
@@ -25,7 +33,7 @@ export default function GamesPage() {
     })
   return (
     <AuthController user={gamesQuery.data.auth}>
-      <LayoutHeader loading={gamesQuery.loading} name={gamesQuery.data.auth?.name} />
+      <LayoutHeader />
       <HStack>
         <Heading>Games</Heading>
         <CreateGame />
