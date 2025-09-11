@@ -18,16 +18,16 @@ export default function ExpandedCard (props: {
   const eyes = Array.from({ length: card.time }, (_, index) => {
     return <Icon as={TbEyeFilled} key={index} boxSize='32px' />
   })
-  const circleBg = card.color === 'Red' ? 'black' : 'white'
-  const rankColor = card.color === 'Red' ? 'white' : 'black'
-  const bonus = card.bonus != null && (
+  const bonus = card.bonus != null && card.bonus !== '' && (
     <Box
-      bg='white'
-      color={circleBg}
-      dangerouslySetInnerHTML={{ __html: card.bonus }}
-      maxH='114px'
-      padding='11px'
-    />
+      bg='red.50'
+      color='black'
+      px='10px'
+      py='5px'
+    >
+      <Heading size='xs'>Bonus</Heading>
+      <Box dangerouslySetInnerHTML={{ __html: card.bonus }} />
+    </Box>
   )
   const linkProps = card.rank === 25 ? { fontSize: '10px' } : {}
   return (
@@ -38,7 +38,7 @@ export default function ExpandedCard (props: {
         </Heading>
         <HStack alignItems='start' justifyContent='space-between' width='100%'>
           <VStack spacing='0'>
-            <Circle size='50px' bg={circleBg} color={rankColor} pb='5px' mb='4px'>
+            <Circle size='50px' bg='white' color={cardBg} pb='5px' mb='4px'>
               <Heading size='lg'>
                 {card.rank}
               </Heading>
