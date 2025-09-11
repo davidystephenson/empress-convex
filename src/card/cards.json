@@ -436,7 +436,7 @@
     "color": "Green",
     "rank": 25,
     "title": "Saint",
-    "time": 3,
+    "time": 2,
     "beginning": "If you have 50 or less gold, draw 5",
     "end": "If you have 5 or less cards in your <b>deck</b>, draw them all",
     "bonus": "",

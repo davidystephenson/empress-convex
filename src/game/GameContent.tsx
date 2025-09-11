@@ -8,10 +8,12 @@ import AuthController from "../auth/AuthController"
 import { ClinkRobe } from "clink-robe"
 import CopyGame from "./CopyGame"
 import StartGame from "./StartGame"
-import GameController from "./GameController"
+import GameConsumer from "./GameConsumer"
 import { ConvexError } from "convex/values"
+import { CurtainRobe } from "robes"
+import ServiceController from "../service/ServiceController"
 
-export default function GamePageContent(props: {
+export default function GameContent(props: {
   gameId: string
 }) {
   const gameQuery = gameQueryContext.query.use()
@@ -37,18 +39,20 @@ export default function GamePageContent(props: {
   const path = `/game/${gameQuery.data.game._id}`
   return (
     <AuthController user={gameQuery.data.auth}>
-      <LayoutHeader />
       <gameContext.Provider game={gameQuery.data.game}>
-        <HStack>
-          <ClinkRobe to={path}>
-            <Heading>{gameQuery.data.game?.name}</Heading>
-          </ClinkRobe>
-          <CopyGame />
-          <JoinGame />
-          <StartGame />
-        </HStack>
-        <GameController />
+        <ServiceController>
+          <LayoutHeader>
+            <ClinkRobe to={path}>
+              <Heading size='sm'>{gameQuery.data.game?.name}</Heading>
+            </ClinkRobe>
+          </LayoutHeader>
+          <HStack>
+            <JoinGame />
+            <StartGame />
+          </HStack>
+          <GameConsumer />
+        </ServiceController>
       </gameContext.Provider>
-    </AuthController >
+    </AuthController>
   )
 }

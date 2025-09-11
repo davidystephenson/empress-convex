@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import GamePageContent from "./GamePageContent"
+import GameContent from "./GameContent"
 import gameQueryContext from "./gameQueryContext"
 
 export default function GamePage() {
@@ -9,7 +9,7 @@ export default function GamePage() {
   }
   return (
     <gameQueryContext.Provider args={{ gameId: params.gameId }}>
-      <GamePageContent gameId={params.gameId} />
+      <GameContent gameId={params.gameId} />
     </gameQueryContext.Provider>
   )
 }
