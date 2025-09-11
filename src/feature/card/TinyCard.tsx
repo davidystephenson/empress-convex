@@ -11,6 +11,7 @@ export default function TinyCard (props: {
       borderRadius='4px'
       w='fit-content'
       {...rest}
+      height='40px'
     >
       <CardBody w='fit-content' p='0'>
         <TinyCardCenter>
