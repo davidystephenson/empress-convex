@@ -1,8 +1,9 @@
+import type { JSX } from 'react'
 import rangeContext from './rangeContext'
 import UnrangedDetails from './UnrangedDetails'
 import { Text } from '@chakra-ui/react'
 
-export default function RangeDetails () {
+export default function RangeDetails (): JSX.Element {
   const range = rangeContext.use()
   const ranged = range.maximum > range.minimum
   if (!ranged) {

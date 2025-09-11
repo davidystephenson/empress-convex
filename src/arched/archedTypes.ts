@@ -4,16 +4,6 @@ import type { QueryCtx, MutationCtx } from '../../convex/_generated/server'
 import type { ContextCreation } from 'context-creator'
 import type useQueryWithStatus from './useQueryWIthStatus'
 
-export interface ArchedLoading {
-  data: undefined
-  loading: true
-}
-
-export interface ArchedLoaded<T> {
-  data: T
-  loading: false
-}
-
 export type ArchedResult<
   Data,
   Args extends DefaultFunctionArgs,

@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, type JSX } from 'react'
 import { IconButtonClinkRobe } from 'clink-robe'
 import { FaCheck, FaLink } from 'react-icons/fa'
 
-export default function CopyGame () {
+export default function CopyGame (): JSX.Element {
   const [copied, setCopied] = useState(false)
-  function handleCopy () {
-    navigator.clipboard.writeText(window.location.href)
+  async function copy (): Promise<void> {
+    void navigator.clipboard.writeText(window.location.href)
     setCopied(true)
   }
   const icon = copied ? <FaCheck /> : <FaLink />
@@ -14,7 +14,7 @@ export default function CopyGame () {
       button={{
         'aria-label': 'Copy game link',
         icon,
-        onClick: handleCopy,
+        onClick: copy,
         variant: 'ghost'
       }}
     />

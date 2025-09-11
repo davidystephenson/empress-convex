@@ -1,9 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useState, type JSX, type ReactNode } from 'react'
 import authContext from './authContext'
 import type { Doc } from '../../convex/_generated/dataModel'
 import { useAuthActions } from '@convex-dev/auth/react'
 
-export default function AuthController (props: { children: ReactNode, user?: Doc<'users'> }) {
+export default function AuthController (props: { children: ReactNode, user?: Doc<'users'> }): JSX.Element {
   const [oldUser, setOldUser] = useState(props.user)
   const authActions = useAuthActions()
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function AuthController (props: { children: ReactNode, user?: Doc
     }
     if (props.user == null && oldUser != null) {
       console.log('signing out')
-      authActions.signOut()
+      void authActions.signOut()
     }
   }, [props.user, oldUser])
 

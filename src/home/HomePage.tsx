@@ -4,8 +4,9 @@ import { useArchedQuery } from '../arched/useArchedQuery'
 import LayoutHeader from '../layout/LayoutHeader'
 import HomeContent from './HomeContent'
 import AuthController from '../auth/AuthController'
+import type { JSX } from 'react'
 
-export default function HomePage () {
+export default function HomePage (): JSX.Element {
   const homeQuery = useArchedQuery({ args: {}, query: api.getHome.default })
   if (homeQuery.isPending) {
     return <LayoutHeader loading />

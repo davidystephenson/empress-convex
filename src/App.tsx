@@ -7,10 +7,11 @@ import HomePage from './home/HomePage'
 import GamesPage from './game/GamesPage'
 import GamePage from './game/GamePage'
 import LayoutNotFound from './layout/LayoutNotFound'
+import type { JSX } from 'react'
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL)
 
-export default function App () {
+export default function App (): JSX.Element {
   return (
     <BrowserRouter>
       <RobesProvider>

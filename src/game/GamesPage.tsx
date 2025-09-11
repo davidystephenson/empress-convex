@@ -3,12 +3,12 @@ import { useArchedQuery } from '../arched/useArchedQuery'
 import LayoutHeader from '../layout/LayoutHeader'
 import { LongRowmanceRobe } from 'robes'
 import GameCells from './GameCells'
-import { useState } from 'react'
+import { useState, type JSX } from 'react'
 import { Heading, HStack } from '@chakra-ui/react'
 import AuthController from '../auth/AuthController'
 import CreateGame from './CreateGame'
 
-export default function GamesPage () {
+export default function GamesPage (): JSX.Element {
   const gamesQuery = useArchedQuery({ args: {}, query: api.getGames.default })
   const [query, setQuery] = useState<string>()
   if (gamesQuery.isPending) {
@@ -22,7 +22,7 @@ export default function GamesPage () {
       </>
     )
   }
-  function handleFilter (props: { query?: string }) {
+  function handleFilter (props: { query?: string }): void {
     setQuery(props.query)
   }
   const filteredGames = query == null

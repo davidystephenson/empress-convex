@@ -1,7 +1,8 @@
+import type { JSX } from 'react'
 import serviceContext from '../service/serviceContext'
 import { Text } from '@chakra-ui/react'
 
-export default function RangeFinalDetails () {
+export default function RangeFinalDetails (): JSX.Element {
   const service = serviceContext.use()
   const ready = service.game.profiles.every(profile => profile.playReady)
   if (ready) {

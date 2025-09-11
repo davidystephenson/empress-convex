@@ -10,16 +10,17 @@ import StartGame from './StartGame'
 import GameConsumer from './GameConsumer'
 import { ConvexError } from 'convex/values'
 import ServiceController from '../service/ServiceController'
+import type { JSX } from 'react'
 
 export default function GameContent (props: {
   gameId: string
-}) {
+}): JSX.Element {
   const gameQuery = gameQueryContext.query.use()
   if (gameQuery.isPending) {
     return <LayoutHeader loading />
   }
   if (gameQuery.isError) {
-    if (gameQuery.error instanceof ConvexError && gameQuery.error.data.notFound) {
+    if (gameQuery.error instanceof ConvexError && gameQuery.error.data.notFound === true) {
       return <LayoutNotFound id={props.gameId} label='Game' />
     }
     return (

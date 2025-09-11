@@ -1,12 +1,13 @@
 import { Badge, Heading, HStack } from '@chakra-ui/react'
 import { ButtonClinkRobe } from 'clink-robe'
 import LayoutHeader from './LayoutHeader'
+import type { JSX } from 'react'
 
 export default function LayoutNotFound (props: {
   id?: string
   label: string
-}) {
-  const badge = props.id && <Badge>{props.id}</Badge>
+}): JSX.Element {
+  const badge = props.id != null && <Badge>{props.id}</Badge>
   return (
     <>
       <LayoutHeader />

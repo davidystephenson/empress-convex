@@ -4,8 +4,9 @@ import { api } from '../../convex/_generated/api'
 import useArchedMutation from '../arched/useArchedMutation'
 import { useNavigate } from 'react-router-dom'
 import gameContext from './gameContext'
+import type { JSX } from 'react'
 
-export default function JoinGame () {
+export default function JoinGame (): JSX.Element {
   const auth = authContext.useMaybe()
   const game = gameContext.use()
   const joinGame = useArchedMutation({ label: 'Join Game', mutation: api.joinGame.default })
@@ -15,7 +16,7 @@ export default function JoinGame () {
     return <></>
   }
   const path = `/game/${game._id}`
-  async function handleJoin () {
+  async function join (): Promise<void> {
     await joinGame.act({ gameId: game._id })
     await navigate(path)
   }
@@ -24,7 +25,7 @@ export default function JoinGame () {
       error={joinGame.error?.message}
       isLoading={joinGame.acting}
       loading={joinGame.acting}
-      onClick={handleJoin}
+      onClick={() => { void join() }}
     >
       Join
     </ImpressedRobe>

@@ -3,8 +3,9 @@ import RangeFinalIcon from './RangeFinalIcon'
 import RangeDetails from './RangeDetails'
 import { PopoverButtonRobe } from 'robes'
 import { HStack, Text } from '@chakra-ui/react'
+import type { JSX } from 'react'
 
-export default function RangeConsumer () {
+export default function RangeConsumer (): JSX.Element {
   const range = rangeContext.use()
   const ranged = range.maximum !== range.minimum
   const maximumLabel = ranged && `-${range.maximum}`

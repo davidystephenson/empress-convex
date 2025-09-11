@@ -1,9 +1,10 @@
+import type { JSX } from 'react'
 import authContext from '../auth/authContext'
 import gameContext from './gameContext'
 import JoinGame from './JoinGame'
 import NavigateGame from './NavigateGame'
 
-export default function GameRowButton () {
+export default function GameRowButton (): JSX.Element {
   const auth = authContext.useMaybe()
   const game = gameContext.use()
   if (!auth.provided) {

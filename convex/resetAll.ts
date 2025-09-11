@@ -18,7 +18,7 @@ const resetAll = mutation({
     const promises: Array<Promise<void>> = []
     let tableName: keyof typeof schema.tables
     for (tableName in schema.tables) {
-      const _delete = async function () {
+      const _delete = async function (): Promise<void> {
         const documents = await ctx.db.query(tableName).collect()
         await overAll(documents, async (doc) => {
           await ctx.db.delete(doc._id)

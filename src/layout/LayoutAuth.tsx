@@ -3,10 +3,11 @@ import { ButtonRobe, ImpressedActorRobe, ProfileRobe } from 'robes'
 import LayoutAdmin from './LayoutAdmin'
 import authContext from '../auth/authContext'
 import useActor from 'use-actor'
+import type { JSX } from 'react'
 
 export default function LayoutAuth (props: {
   loading?: boolean
-}) {
+}): JSX.Element {
   const auth = authContext.useMaybe()
   const actions = useAuthActions()
   const createActor = useActor({
@@ -16,7 +17,7 @@ export default function LayoutAuth (props: {
       console.log('createActor output', output)
     }
   })
-  if (props.loading) {
+  if (props.loading === true) {
     return <ButtonRobe size='xs' isLoading />
   }
   if (!auth.provided) {
@@ -26,7 +27,7 @@ export default function LayoutAuth (props: {
       </ImpressedActorRobe>
     )
   }
-  async function handleLogout () {
+  async function handleLogout (): Promise<void> {
     await actions.signOut()
   }
   const colorScheme = auth.value.admin ? { colorScheme: 'red' } : {}

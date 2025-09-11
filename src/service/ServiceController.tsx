@@ -1,9 +1,10 @@
+import type { JSX } from 'react'
 import gameContext from '../game/gameContext'
 import serviceContext from './serviceContext'
 
 export default function ServiceController (props: {
   children: React.ReactNode
-}) {
+}): JSX.Element {
   const game = gameContext.use()
   if (game.startingUserId == null) {
     return <>{props.children}</>

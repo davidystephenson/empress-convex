@@ -1,5 +1,5 @@
 import type { Input, InputPlayer } from '@davidystephenson/cardservice'
-import type { Doc, Id } from '../../convex/_generated/dataModel'
+import type { Id } from '../../convex/_generated/dataModel'
 import { SERVICE_BASE } from './serviceConstants'
 import type { RelatedGame } from '../game/gameTypes'
 import getServiceCount from './getServiceCount'
@@ -7,7 +7,7 @@ import getServiceCount from './getServiceCount'
 export default function createServiceInput (props: {
   game: RelatedGame
   startingUserId: Id<'users'>
-}) {
+}): Input {
   const playerCount = getServiceCount({ game: props.game })
   const players = props.game.players.map((player) => {
     const inputPlayer: InputPlayer = {

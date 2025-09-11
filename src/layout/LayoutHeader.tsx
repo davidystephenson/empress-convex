@@ -1,12 +1,12 @@
 import { Heading, HStack } from '@chakra-ui/react'
 import LayoutAuth from './LayoutAuth'
 import ClinkRobe from 'clink-robe'
-import type { ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 export default function LayoutHeader (props: {
   children?: ReactNode
   loading?: boolean
-}) {
+}): JSX.Element {
   return (
     <HStack justifyContent='space-between'>
       <ClinkRobe to='/games'>

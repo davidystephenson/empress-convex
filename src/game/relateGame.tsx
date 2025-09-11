@@ -1,8 +1,9 @@
 import type { Doc } from '../../convex/_generated/dataModel'
 import type { Ctx } from '../arched/archedTypes'
 import relatePlayers from '../player/relatePlayers'
+import type { RelatedGame } from './gameTypes'
 
-export default async function relateGame (props: { ctx: Ctx, game: Doc<'games'> }) {
+export default async function relateGame (props: { ctx: Ctx, game: Doc<'games'> }): Promise<RelatedGame> {
   const players = await props.ctx
     .db
     .query('players')

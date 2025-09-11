@@ -20,12 +20,13 @@ export default function ExpandedCard (props: {
   })
   const circleBg = card.color === 'Red' ? 'black' : 'white'
   const rankColor = card.color === 'Red' ? 'white' : 'black'
-  const bonusProps = card.bonus !== '' ? { color: circleBg, padding: '11px', bg: 'white' } : {}
-  const bonus = card.bonus && (
+  const bonus = card.bonus != null && (
     <Box
-      {...bonusProps}
+      bg='white'
+      color={circleBg}
       dangerouslySetInnerHTML={{ __html: card.bonus }}
       maxH='114px'
+      padding='11px'
     />
   )
   const linkProps = card.rank === 25 ? { fontSize: '10px' } : {}
