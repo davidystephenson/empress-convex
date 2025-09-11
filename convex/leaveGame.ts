@@ -1,5 +1,5 @@
-import guard from '../src/feature/arched/guard'
-import guardAuthId from '../src/feature/auth/guardAuthId'
+import guard from '../src/arched/guard'
+import guardAuthId from '../src/auth/guardAuthId'
 import { mutation } from './_generated/server'
 import { ConvexError, v } from 'convex/values'
 

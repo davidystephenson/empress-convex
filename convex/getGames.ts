@@ -1,7 +1,7 @@
 import { getAuthUserId } from '@convex-dev/auth/server'
 import { query } from './_generated/server'
 import { overAll } from 'overpromise'
-import relateGame from '../src/feature/game/relateGame'
+import relateGame from '../src/game/relateGame'
 
 const getHome = query({
   args: {},

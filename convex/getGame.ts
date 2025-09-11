@@ -1,7 +1,7 @@
 import { getAuthUserId } from '@convex-dev/auth/server'
 import { query } from './_generated/server'
 import { v } from 'convex/values'
-import guardRelatedGame from '../src/feature/game/guardRelatedGame'
+import guardRelatedGame from '../src/game/guardRelatedGame'
 
 const getGame = query({
   args: { gameId: v.string()},

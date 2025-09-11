@@ -1,5 +1,5 @@
-import createAuthName from '../src/feature/auth/createAuthName'
-import guardAuthId from '../src/feature/auth/guardAuthId'
+import createAuthName from '../src/auth/createAuthName'
+import guardAuthId from '../src/auth/guardAuthId'
 import { mutation } from './_generated/server'
 import { ConvexError } from 'convex/values'
 
