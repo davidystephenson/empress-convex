@@ -6,6 +6,7 @@ const schema = defineSchema({
   ...authTables,
   games: defineTable({
     name: v.string(),
+    startingUserId: v.optional(v.id('users')),
   })
     .index('name', ['name']),
   players: defineTable({
@@ -15,10 +16,6 @@ const schema = defineSchema({
     .index('game', ['gameId'])
     .index('user', ['userId'])
     .index('game_user', ['gameId', 'userId']),
-  starts: defineTable({
-    gameId: v.id('games'),
-    userId: v.id('users'),
-  }).index('game', ['gameId']),
   users: defineTable({
     admin: v.boolean(),
     name: v.string(),

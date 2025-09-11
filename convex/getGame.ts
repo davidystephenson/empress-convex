@@ -12,16 +12,12 @@ const getGame = query({
       return {}
     }
     const game = await guardRelatedGame({ ctx, gameId }) 
-    const starts = await ctx.db.query('starts').withIndex(
-      'game', (q) => q.eq('gameId', gameId)
-    ).collect()
-    const episodes = { starts }
     const authId = await getAuthUserId(ctx)
     if (authId == null) {
-      return { game, episodes }
+      return { game }
     }
     const auth = await ctx.db.get(authId) ?? undefined
-    return { auth, game, episodes }
+    return { auth, game }
   }
 })
 export default getGame

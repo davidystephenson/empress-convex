@@ -13,6 +13,8 @@
     "@auth/core": "^0.37.0",
     "@chakra-ui/react": "^2.10.9",
     "@convex-dev/auth": "^0.0.88",
+    "@davidystephenson/cardservice": "^1.0.3",
+    "@dnd-kit/core": "^6.3.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@types/yeast": "^0.1.3",
@@ -44,5 +46,11 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json",
+    "ignore": [
+      "dist"
+    ]
   }
 }
