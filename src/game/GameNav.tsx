@@ -1,9 +1,9 @@
-import { Heading, HStack } from "@chakra-ui/react"
-import ClinkRobe from "clink-robe"
-import gameContext from "./gameContext"
-import TinyRankedCard from "../card/TinyRankedCard"
+import { Heading, HStack } from '@chakra-ui/react'
+import ClinkRobe from 'clink-robe'
+import gameContext from './gameContext'
+import TinyRankedCard from '../card/TinyRankedCard'
 
-export default function GameNav() {
+export default function GameNav () {
   const game = gameContext.use()
   if (game.startingUserId == null) {
     return <></>

@@ -1,6 +1,6 @@
-import rangeContext from "./rangeContext"
-import RangeFinalDetails from "./RangeFinalDetails"
-import { Text } from "@chakra-ui/react"
+import rangeContext from './rangeContext'
+import RangeFinalDetails from './RangeFinalDetails'
+import { Text } from '@chakra-ui/react'
 
 export default function UnrangedDetails () {
   const range = rangeContext.use()

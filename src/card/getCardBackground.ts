@@ -1,4 +1,4 @@
-import guardCard from "./guardCard"
+import guardCard from './guardCard'
 
 export default function getCardBackground (props: {
   rank: number

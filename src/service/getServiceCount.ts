@@ -1,7 +1,7 @@
-import type { Input } from "@davidystephenson/cardservice";
-import type { RelatedGame } from "../game/gameTypes";
+import type { Input } from '@davidystephenson/cardservice'
+import type { RelatedGame } from '../game/gameTypes'
 
-export default function getServiceCount(props: {
+export default function getServiceCount (props: {
   game: RelatedGame
 }): Input['playerCount'] {
   switch (props.game.players.length) {

@@ -1,10 +1,10 @@
-import { useAuthActions } from "@convex-dev/auth/react";
-import { ButtonRobe, ImpressedActorRobe, ProfileRobe } from "robes";
-import LayoutAdmin from "./LayoutAdmin";
-import authContext from "../auth/authContext";
-import useActor from "use-actor";
+import { useAuthActions } from '@convex-dev/auth/react'
+import { ButtonRobe, ImpressedActorRobe, ProfileRobe } from 'robes'
+import LayoutAdmin from './LayoutAdmin'
+import authContext from '../auth/authContext'
+import useActor from 'use-actor'
 
-export default function LayoutAuth(props: {
+export default function LayoutAuth (props: {
   loading?: boolean
 }) {
   const auth = authContext.useMaybe()

@@ -1,9 +1,9 @@
-import type { Doc } from "../../convex/_generated/dataModel"
-import type { Ctx } from "../arched/archedTypes"
-import { overAll } from "overpromise"
-import guard from "../arched/guard"
+import type { Doc } from '../../convex/_generated/dataModel'
+import type { Ctx } from '../arched/archedTypes'
+import { overAll } from 'overpromise'
+import guard from '../arched/guard'
 
-export default async function relatePlayers(props: {
+export default async function relatePlayers (props: {
   ctx: Ctx
   players: Array<Doc<'players'>>
 }) {

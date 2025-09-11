@@ -4,14 +4,14 @@ import { v } from 'convex/values'
 import guardRelatedGame from '../src/game/guardRelatedGame'
 
 const getGame = query({
-  args: { gameId: v.string()},
+  args: { gameId: v.string() },
   handler: async (ctx, args) => {
     const gameId = ctx.db.normalizeId('games', args.gameId)
     console.log('gameId', gameId)
     if (gameId == null) {
       return {}
     }
-    const game = await guardRelatedGame({ ctx, gameId }) 
+    const game = await guardRelatedGame({ ctx, gameId })
     const authId = await getAuthUserId(ctx)
     if (authId == null) {
       return { game }

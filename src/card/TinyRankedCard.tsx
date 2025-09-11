@@ -13,7 +13,7 @@ import CardIcon from './CardIcon'
 import getCardBackground from './getCardBackground'
 import ExpandedCard from './ExpandedCard'
 
-export default function TinyRankedCard(props: {
+export default function TinyRankedCard (props: {
   children?: React.ReactNode
   rank: number
 } & CardProps): JSX.Element {

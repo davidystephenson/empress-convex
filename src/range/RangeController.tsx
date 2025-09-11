@@ -1,5 +1,5 @@
-import RangeConsumer from "./RangeConsumer";
-import rangeContext from "./rangeContext";
+import RangeConsumer from './RangeConsumer'
+import rangeContext from './rangeContext'
 
 export default function RangeController () {
   return (

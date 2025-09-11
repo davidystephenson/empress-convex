@@ -30,4 +30,3 @@ const resetAll = mutation({
   }
 })
 export default resetAll
-

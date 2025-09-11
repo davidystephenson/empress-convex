@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+    "convex/**/*",
+    "vite.config.ts",
+    "eslint.config.js"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "convex/_generated"
+  ]
+}

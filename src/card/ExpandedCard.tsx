@@ -7,7 +7,7 @@ import ExpandedCardLink from './ExpandedCardLink'
 import LargeCard from './LargeCard'
 import guardCard from './guardCard'
 
-export default function ExpandedCard(props: {
+export default function ExpandedCard (props: {
   rank?: number
 }): JSX.Element {
   if (props.rank == null) {

@@ -1,9 +1,9 @@
-import { Stack, Heading, HStack } from "@chakra-ui/react"
-import TinyRankedCard from "./TinyRankedCard"
-import type { Card } from "@davidystephenson/cardservice"
-import type { ReactNode } from "react"
+import { Stack, Heading, HStack } from '@chakra-ui/react'
+import TinyRankedCard from './TinyRankedCard'
+import type { Card } from '@davidystephenson/cardservice'
+import type { ReactNode } from 'react'
 
-export default function CardSection(props: {
+export default function CardSection (props: {
   cards: Card[]
   children?: ReactNode
   label: ReactNode

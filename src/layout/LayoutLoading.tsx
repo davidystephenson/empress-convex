@@ -1,7 +1,7 @@
-import { ReelingRobe } from "robes";
-import LayoutHeader from "./LayoutHeader";
+import { ReelingRobe } from 'robes'
+import LayoutHeader from './LayoutHeader'
 
-export default function LayoutLoading() {
+export default function LayoutLoading () {
   return (
     <>
       <LayoutHeader loading />

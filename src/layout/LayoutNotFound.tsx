@@ -1,8 +1,8 @@
-import { Badge, Heading, HStack } from "@chakra-ui/react"
-import { ButtonClinkRobe } from "clink-robe"
-import LayoutHeader from "./LayoutHeader"
+import { Badge, Heading, HStack } from '@chakra-ui/react'
+import { ButtonClinkRobe } from 'clink-robe'
+import LayoutHeader from './LayoutHeader'
 
-export default function LayoutNotFound(props: {
+export default function LayoutNotFound (props: {
   id?: string
   label: string
 }) {
@@ -15,7 +15,7 @@ export default function LayoutNotFound(props: {
         {badge}
       </HStack>
 
-      <ButtonClinkRobe to="/games">Games</ButtonClinkRobe>
+      <ButtonClinkRobe to='/games'>Games</ButtonClinkRobe>
     </>
   )
 }

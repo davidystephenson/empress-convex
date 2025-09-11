@@ -23,4 +23,3 @@ ref: Ref<HTMLDivElement>): JSX.Element {
 
 const CardsContainer = forwardRef(View)
 export default CardsContainer
-

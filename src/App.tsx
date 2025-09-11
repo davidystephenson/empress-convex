@@ -1,16 +1,16 @@
-import { Container, Stack } from "@chakra-ui/react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { RobesProvider } from "robes";
-import { ConvexAuthProvider } from "@convex-dev/auth/react";
-import { ConvexReactClient } from "convex/react";
-import HomePage from "./home/HomePage";
-import GamesPage from "./game/GamesPage";
-import GamePage from "./game/GamePage";
-import LayoutNotFound from "./layout/LayoutNotFound";
+import { Container, Stack } from '@chakra-ui/react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RobesProvider } from 'robes'
+import { ConvexAuthProvider } from '@convex-dev/auth/react'
+import { ConvexReactClient } from 'convex/react'
+import HomePage from './home/HomePage'
+import GamesPage from './game/GamesPage'
+import GamePage from './game/GamePage'
+import LayoutNotFound from './layout/LayoutNotFound'
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL)
 
-export default function App() {
+export default function App () {
   return (
     <BrowserRouter>
       <RobesProvider>

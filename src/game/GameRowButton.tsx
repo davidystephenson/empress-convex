@@ -1,7 +1,7 @@
-import authContext from "../auth/authContext";
-import gameContext from "./gameContext";
-import JoinGame from "./JoinGame";
-import NavigateGame from "./NavigateGame";
+import authContext from '../auth/authContext'
+import gameContext from './gameContext'
+import JoinGame from './JoinGame'
+import NavigateGame from './NavigateGame'
 
 export default function GameRowButton () {
   const auth = authContext.useMaybe()

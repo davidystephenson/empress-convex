@@ -4,7 +4,7 @@ import { SERVICE_BASE } from './serviceConstants'
 import type { RelatedGame } from '../game/gameTypes'
 import getServiceCount from './getServiceCount'
 
-export default function createServiceInput(props: {
+export default function createServiceInput (props: {
   game: RelatedGame
   startingUserId: Id<'users'>
 }) {
@@ -23,7 +23,7 @@ export default function createServiceInput(props: {
     playerCount,
     players,
     seed: props.game._id,
-    startingPlayerId: props.startingUserId,
+    startingPlayerId: props.startingUserId
   }
   return input
 }

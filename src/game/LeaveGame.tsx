@@ -1,11 +1,11 @@
-import { ImpressedRobe } from "robes"
-import authContext from "../auth/authContext"
-import { api } from "../../convex/_generated/api"
-import useArchedMutation from "../arched/useArchedMutation"
-import { useNavigate } from "react-router-dom"
-import gameContext from "./gameContext"
+import { ImpressedRobe } from 'robes'
+import authContext from '../auth/authContext'
+import { api } from '../../convex/_generated/api'
+import useArchedMutation from '../arched/useArchedMutation'
+import { useNavigate } from 'react-router-dom'
+import gameContext from './gameContext'
 
-export default function LeaveGame() {
+export default function LeaveGame () {
   const auth = authContext.useMaybe()
   const game = gameContext.use()
   const leaveGame = useArchedMutation({ label: 'Leave Game', mutation: api.leaveGame.default })
@@ -14,7 +14,7 @@ export default function LeaveGame() {
   if (!auth.provided || !joined) {
     return <></>
   }
-  async function handleLeave() {
+  async function handleLeave () {
     await leaveGame.act({ gameId: game._id })
     await navigate('/games')
   }

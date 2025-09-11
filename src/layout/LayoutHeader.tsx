@@ -1,9 +1,9 @@
-import { Heading, HStack } from "@chakra-ui/react";
-import LayoutAuth from "./LayoutAuth";
-import ClinkRobe from "clink-robe";
-import type { ReactNode } from "react";
+import { Heading, HStack } from '@chakra-ui/react'
+import LayoutAuth from './LayoutAuth'
+import ClinkRobe from 'clink-robe'
+import type { ReactNode } from 'react'
 
-export default function LayoutHeader(props: {
+export default function LayoutHeader (props: {
   children?: ReactNode
   loading?: boolean
 }) {

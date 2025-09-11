@@ -23,4 +23,3 @@ const leaveGame = mutation({
   }
 })
 export default leaveGame
-

@@ -1,6 +1,6 @@
-import contextCreator from "context-creator";
-import getRange from "./getRange";
-import serviceContext from "../service/serviceContext";
+import contextCreator from 'context-creator'
+import getRange from './getRange'
+import serviceContext from '../service/serviceContext'
 
 const rangeContext = contextCreator({
   name: 'Range',

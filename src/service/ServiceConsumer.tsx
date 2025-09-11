@@ -1,7 +1,7 @@
-import { HStack, Stack } from "@chakra-ui/react";
-import ServicePalace from "./ServicePalace";
-import ServiceTrial from "./ServiceTrial.tsx";
-import ServiceDungeon from "./ServiceDungeon.tsx";
+import { HStack, Stack } from '@chakra-ui/react'
+import ServicePalace from './ServicePalace'
+import ServiceTrial from './ServiceTrial.tsx'
+import ServiceDungeon from './ServiceDungeon.tsx'
 
 export default function ServiceConsumer () {
   return (

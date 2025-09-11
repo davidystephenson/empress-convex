@@ -15,4 +15,3 @@ export interface CardBase {
   link1: string
   link2: string
 }
-

@@ -20,4 +20,3 @@ const createGame = mutation({
   }
 })
 export default createGame
-

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CardLinkIcon from './CardLinkIcon'
 import type { JSX } from 'react'
 
-export default function ExpandedCardLink(props: {
+export default function ExpandedCardLink (props: {
   icon: string
   label: string
   link: string

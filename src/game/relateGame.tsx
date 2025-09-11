@@ -1,8 +1,8 @@
-import type { Doc } from "../../convex/_generated/dataModel";
-import type { Ctx } from "../arched/archedTypes";
-import relatePlayers from "../player/relatePlayers";
+import type { Doc } from '../../convex/_generated/dataModel'
+import type { Ctx } from '../arched/archedTypes'
+import relatePlayers from '../player/relatePlayers'
 
-export default async function relateGame(props: { ctx: Ctx, game: Doc<'games'> }) {
+export default async function relateGame (props: { ctx: Ctx, game: Doc<'games'> }) {
   const players = await props.ctx
     .db
     .query('players')

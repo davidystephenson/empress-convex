@@ -48,9 +48,10 @@
     "vite": "^7.1.2"
   },
   "ts-standard": {
-    "project": "./tsconfig.json",
+    "project": "./tsconfig.lint.json",
     "ignore": [
-      "dist"
+      "dist",
+      "convex/_generated"
     ]
   }
 }

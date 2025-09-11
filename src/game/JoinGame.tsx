@@ -1,11 +1,11 @@
-import { ImpressedRobe } from "robes"
-import authContext from "../auth/authContext"
-import { api } from "../../convex/_generated/api"
-import useArchedMutation from "../arched/useArchedMutation"
-import { useNavigate } from "react-router-dom"
-import gameContext from "./gameContext"
+import { ImpressedRobe } from 'robes'
+import authContext from '../auth/authContext'
+import { api } from '../../convex/_generated/api'
+import useArchedMutation from '../arched/useArchedMutation'
+import { useNavigate } from 'react-router-dom'
+import gameContext from './gameContext'
 
-export default function JoinGame() {
+export default function JoinGame () {
   const auth = authContext.useMaybe()
   const game = gameContext.use()
   const joinGame = useArchedMutation({ label: 'Join Game', mutation: api.joinGame.default })
@@ -15,7 +15,7 @@ export default function JoinGame() {
     return <></>
   }
   const path = `/game/${game._id}`
-  async function handleJoin() {
+  async function handleJoin () {
     await joinGame.act({ gameId: game._id })
     await navigate(path)
   }

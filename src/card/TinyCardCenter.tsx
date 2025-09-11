@@ -1,5 +1,5 @@
-import { Center, type CenterProps } from "@chakra-ui/react"
-import type { JSX, ReactNode } from "react"
+import { Center, type CenterProps } from '@chakra-ui/react'
+import type { JSX, ReactNode } from 'react'
 
 export default function TinyCardCenter (props: {
   children?: ReactNode

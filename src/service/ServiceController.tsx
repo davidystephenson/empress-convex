@@ -1,5 +1,5 @@
-import gameContext from "../game/gameContext";
-import serviceContext from "./serviceContext";
+import gameContext from '../game/gameContext'
+import serviceContext from './serviceContext'
 
 export default function ServiceController (props: {
   children: React.ReactNode

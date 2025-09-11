@@ -1,8 +1,8 @@
-import contextCreator from "context-creator";
-import gameContext from "../game/gameContext";
-import type { Id } from "../../convex/_generated/dataModel";
-import createServiceInput from "./createServiceInput";
-import { service } from "@davidystephenson/cardservice";
+import contextCreator from 'context-creator'
+import gameContext from '../game/gameContext'
+import type { Id } from '../../convex/_generated/dataModel'
+import createServiceInput from './createServiceInput'
+import { service } from '@davidystephenson/cardservice'
 
 const serviceContext = contextCreator({
   name: 'Service',
@@ -16,4 +16,4 @@ const serviceContext = contextCreator({
     return output
   }
 })
-export default serviceContext;
+export default serviceContext

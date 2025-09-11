@@ -1,5 +1,5 @@
-import contextCreator from "context-creator";
-import type { RelatedGame } from "./gameTypes";
+import contextCreator from 'context-creator'
+import type { RelatedGame } from './gameTypes'
 
 const gameContext = contextCreator({
   name: 'Game',
@@ -9,4 +9,4 @@ const gameContext = contextCreator({
     return props.game
   }
 })
-export default gameContext;
+export default gameContext

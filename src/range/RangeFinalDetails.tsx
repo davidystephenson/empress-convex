@@ -1,5 +1,5 @@
-import serviceContext from "../service/serviceContext"
-import { Text } from "@chakra-ui/react"
+import serviceContext from '../service/serviceContext'
+import { Text } from '@chakra-ui/react'
 
 export default function RangeFinalDetails () {
   const service = serviceContext.use()

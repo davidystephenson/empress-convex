@@ -25,4 +25,3 @@ const startGame = mutation({
   }
 })
 export default startGame
-

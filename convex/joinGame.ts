@@ -25,4 +25,3 @@ const joinGame = mutation({
   }
 })
 export default joinGame
-
